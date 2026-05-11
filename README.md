@@ -1,10 +1,10 @@
 # Analog Code m-Height Predictor
 
-**Analog Code m-Height Predictor** is a compact, constraint-aware learning system for fast **m-height prediction** using a **Multi-Task ResNet** with **1.4M parameters**. It is designed for domains where prediction speed, numerical stability, and structurally valid outputs are all critical.
+**Analog Code m-Height Predictor** is a compact, constraint-aware learning system for fast **m-height prediction** using a **Multi-Task ResNet** with **1.4M parameters**. It is designed for domains wh[...]
 
 ## Project Overview
 
-This project targets regression settings in which predicted quantities must remain **ordered**, **non-negative**, and **efficient to compute** at inference time. The model combines multi-task representation learning with a monotone output parameterization so that validity is enforced by design rather than corrected after prediction.
+This project targets regression settings in which predicted quantities must remain **ordered**, **non-negative**, and **efficient to compute** at inference time. The model combines multi-task represen[...]
 
 Three core ideas define the system:
 
@@ -43,7 +43,7 @@ $$
 To enforce non-negative increments, the model applies **Softplus** elementwise:
 
 $$
-\Delta_i = \operatorname{Softplus}(z_i) = \log(1 + e^{z_i})
+\Delta_i = \text{Softplus}(z_i) = \log(1 + e^{z_i})
 $$
 
 The monotone m-height output is then constructed by cumulative summation:
@@ -138,7 +138,7 @@ $$
 Applying Softplus gives positive increments:
 
 $$
-\Delta = [\operatorname{Softplus}(-1.2),\; \operatorname{Softplus}(-0.4),\; \operatorname{Softplus}(0.3)]
+\Delta = [\text{Softplus}(-1.2),\; \text{Softplus}(-0.4),\; \text{Softplus}(0.3)]
 $$
 
 Numerically, this is approximately:
@@ -189,7 +189,7 @@ This emphasizes **relative scale consistency** and often improves stability when
 
 ### Satellite communication
 
-Satellite communication systems often require fast prediction of operating margins, reliability behavior, or performance envelopes under changing link conditions. A compact monotone predictor is useful when inference must be fast, memory-efficient, and physically consistent.
+Satellite communication systems often require fast prediction of operating margins, reliability behavior, or performance envelopes under changing link conditions. A compact monotone predictor is usefu[...]
 
 Example applications:
 
@@ -199,7 +199,7 @@ Example applications:
 
 ### Cloud storage durability
 
-Cloud storage platforms depend on robust estimates of durability, failure progression, and redundancy effectiveness. In these settings, monotone outputs can reflect naturally ordered reliability or degradation trends.
+Cloud storage platforms depend on robust estimates of durability, failure progression, and redundancy effectiveness. In these settings, monotone outputs can reflect naturally ordered reliability or de[...]
 
 Example applications:
 
